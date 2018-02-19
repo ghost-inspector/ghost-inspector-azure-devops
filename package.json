@@ -4,7 +4,7 @@
   "description": "Trigger your Ghost Inspector test suite in your VSTS build.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/ts-mocha/bin/ts-mocha tests/**/*.ts"
+    "test": "./node_modules/ts-mocha/bin/ts-mocha run-suite-task/tests/**/*.ts"
   },
   "keywords": [
     "ghost inspector",

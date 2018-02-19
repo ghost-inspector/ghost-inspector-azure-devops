@@ -1,0 +1,73 @@
+{
+  "manifestVersion": 1,
+  "id": "ghost-inspector-vsts-extension",
+  "publisher": "ghost-inspector",
+  "name": "Ghost Inspector Integration",
+  "version": "0.1.0",
+  "description": "Trigger your Ghost Inspector test suite from your Visual Studio Team Services build.",
+  "tags": [
+    "Automated Testing",
+    "Integration Testing",
+    "UI Testing",
+    "Browser Testing",
+    "Continuous Integration",
+    "Continuous Delivery",
+    "Build",
+    "Release"
+  ],
+  "icons": {
+    "default": "icon.png"
+  },
+  "public": true,
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "scopes": [
+    "vso.build_execute"
+  ],
+  "categories": [
+    "Build and release"
+  ],
+  "content": {
+    "details": {
+      "path": "overview.md"
+    },
+    "license": {
+      "path": "LICENSE"
+    }
+  },
+  "links": {
+    "repository": {
+      "uri": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension"
+    },
+    "issues": {
+      "uri": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues"
+    },
+    "support": {
+      "uri": "mailto:help@ghostinspector.com"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension"
+  },
+  "files": [
+    {
+      "path": "run-suite-task"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "package-extension-build-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "run-suite-task"
+      }
+    }
+  ]
+}
