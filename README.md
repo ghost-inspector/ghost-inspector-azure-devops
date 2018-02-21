@@ -13,10 +13,10 @@ This plugin can be installed from within the [Visual Studio Marketplace](https:/
 1. Install the extension from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ghost-inspector.ghost-inspector-vsts-extension).
 1. Open your project within VSTS and navigate to **Builds**. 
 2. In the **Tasks** section, click the ```+``` icon to add a new task.
-3. To find the extension in the list quickly, type `Ghost` and select **Add**.
+3. To find the extension in the list quickly, type `Ghost` in the search box and select **Add**.
 4. Click on the new task and fill in the required fields for **Suite ID** and **API Key**.
-4. If you would like to run your Ghost Inspector tests on a URL other than their default setting (such as a local build instance of your application using a tunnel), enter the start URL in the ```Start URL``` field.
-5. If you would like to pass other custom parameters or variables to your suite run, specify them in the ```Additional Parameters``` field.
+4. If you would like to run your Ghost Inspector tests on a URL other than their default setting (such as a local build instance of your application using a tunnel), enter the start URL in the **Start URL** field.
+5. If you would like to pass other [custom parameters](https://ghostinspector.com/docs/api/suites/#execute) or [variables](https://ghostinspector.com/docs/variables/) to your suite run, specify them in the **Additional Parameters** field using JSON (eg: `{"browser":"chrome", "myVar":"some value"}`).
 6. Save and queue your project.
 
 # Development
@@ -26,8 +26,8 @@ The extension is written in TypeScript. Between changes, you can simply run the 
 ./bin/test.sh
 ```
 
-## Support
-Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through support](https://ghostinspector.com/support/).
+## Issues
+Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
 2018-Feb-021: Initial release
