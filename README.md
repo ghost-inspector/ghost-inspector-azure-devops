@@ -19,5 +19,15 @@ This plugin can be installed from within the [Visual Studio Marketplace](https:/
 5. If you would like to pass other custom parameters or variables to your suite run, specify them in the ```Additional Parameters``` field.
 6. Save and queue your project.
 
+# Development
+The extension is written in TypeScript. Between changes, you can simply run the tests with:
+
+```
+./bin/test.sh
+```
+
+## Support
+Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through support](https://ghostinspector.com/support/).
+
 ## Change Log
 2018-Feb-021: Initial release
