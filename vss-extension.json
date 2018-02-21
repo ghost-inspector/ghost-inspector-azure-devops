@@ -3,22 +3,28 @@
   "id": "ghost-inspector-vsts-extension",
   "publisher": "ghost-inspector",
   "name": "Ghost Inspector Integration",
-  "version": "0.1.0",
-  "description": "Trigger your Ghost Inspector test suite from your Visual Studio Team Services build.",
+  "version": "0.1.6",
+  "description": "Ghost Inspector is an automated browser UI testing and monitoring tool. This integration allows you to execute your Ghost Inspector test suites directly within your VSTS build.",
   "tags": [
     "Automated Testing",
     "Integration Testing",
     "UI Testing",
     "Browser Testing",
+    "Quality Assurance",
     "Continuous Integration",
     "Continuous Delivery",
+    "DevOps",
     "Build",
     "Release"
   ],
   "icons": {
     "default": "icon.png"
   },
-  "public": true,
+  "branding": {
+    "color": "rgb(0, 100, 2)",
+    "theme": "dark"
+  },
+  "public": false,
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
@@ -32,13 +38,19 @@
   ],
   "content": {
     "details": {
-      "path": "overview.md"
+      "path": "README.md"
     },
     "license": {
       "path": "LICENSE"
     }
   },
   "links": {
+    "home": {
+      "uri": "https://www.ghostinspector.com/"
+    },
+    "getstarted": {
+        "uri": "https://ghostinspector.com/docs/getting-started/"
+    },
     "repository": {
       "uri": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension"
     },
@@ -56,6 +68,9 @@
   "files": [
     {
       "path": "run-suite-task"
+    }, {
+      "path": "icon.png",
+      "addressable": true
     }
   ],
   "contributions": [
