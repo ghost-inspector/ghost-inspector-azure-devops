@@ -1,26 +1,23 @@
-# Getting started with Ghost Inspector
-Ghost Inspector is an automated website testing and monitoring service that checks for problems with your website or application. It carries out operations in a browser, the same way a user would, to ensure that everything is working properly.
+Ghost Inspector Extension for Visual Studio Team Services
+-------------
+With this plugin you can add a build step to your VSTS project that executes a Ghost Inspector test suite. If the test suite is successful, your pipeline will continue to the next step in your pipeline; however, if it fails (or times out), the build will be marked as failed.
 
-Check out our [Getting Started](https://ghostinspector.com/docs/getting-started/) page for more information.
+## Installation
+This plugin can be installed from within the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ghost-inspector.ghost-inspector-vsts-extension).
 
-# Key Features
-Ghost Inspector is a powerful tool in your QA arsenal to unsure that your websites and application are behaving as expected.
-
-Some of our [key features](https://ghostinspector.com/learn-more/):
-
- * [Painlessly record tests in your browser](https://ghostinspector.com/docs/test-recorder/)
- * [Build and manage your tests with our Visual Editor](https://ghostinspector.com/docs/test-editor/)
- * [Monitor the functionality of your website or application](https://ghostinspector.com/docs/test-schedule/) on a schedule or on demand
- * [Catch and review Visual Regressions](https://ghostinspector.com/docs/comparing-screenshots/) with our screenshot comparison tool
- * [Customize and override test settings](https://ghostinspector.com/docs/test-settings/) in advance or at runtime
- * [Notify your team](https://ghostinspector.com/docs/notification/) when things haven't gone as expected
-
-# Trigger tests from your VSTS build
-Adding Ghost Inspector test suite execution to your VSTS build is as simple as adding a new Ghost Inspector task.
-Once the task has been added, you have the ability to customize your build step:
-
- * **Suite ID**: specify the ID of the Ghost Inspector test suite you wish to execute
- * **API Key**: provide your Ghost Inspector API key ([provided in your account](https://app.ghostinspector.com/account))
- * **Start URL** (optional): provide the alternative URL of your test environment to execute your test against
- * **Additional Parameters** (optional): additionally provide [any other API paramaters](https://ghostinspector.com/docs/api/tests/#execute) (JSON format)
+## Prerequisites
+* **API Key** - This is a unique, private key provided with your account which allows you to access the API. You can find it in your Ghost Inspector account settings at https://app.ghostinspector.com/account.
+* **Suite ID** - The ID of the Ghost Inpsector suite that you would like to execute.
  
+## Usage
+1. Install the extension from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ghost-inspector.ghost-inspector-vsts-extension).
+1. Open your project within VSTS and navigate to **Builds**. 
+2. In the **Tasks** section, click the ```+``` icon to add a new task.
+3. To find the extension in the list quickly, type `Ghost` and select **Add**.
+4. Click on the new task and fill in the required fields for **Suite ID** and **API Key**.
+4. If you would like to run your Ghost Inspector tests on a URL other than their default setting (such as a local build instance of your application using a tunnel), enter the start URL in the ```Start URL``` field.
+5. If you would like to pass other custom parameters or variables to your suite run, specify them in the ```Additional Parameters``` field.
+6. Save and queue your project.
+
+## Change Log
+2018-Feb-021: Initial release
