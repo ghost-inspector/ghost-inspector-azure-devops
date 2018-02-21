@@ -1,8 +1,12 @@
 {
   "name": "ghost-inspector-vsts-task-extension",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Trigger your Ghost Inspector test suite in your VSTS build.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension"
+  },
   "scripts": {
     "test": "./node_modules/ts-mocha/bin/ts-mocha tests/**/*.ts"
   },

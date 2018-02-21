@@ -21,6 +21,6 @@ Once the task has been added, you have the ability to customize your build step:
 
  * **Suite ID**: specify the ID of the Ghost Inspector test suite you wish to execute.
  * **API Key**: provide your Ghost Inspector API key ([provided in your account](https://app.ghostinspector.com/account)).
- * **Start URL** (optional): provide the alternative URL of your test environment to execute your test against.
- * **Additional Parameters** (optional): additionally provide [any other API paramaters](https://ghostinspector.com/docs/api/tests/#execute) (JSON format).
+ * **Start URL** (optional): provide the [alternative URL of your test environment](https://ghostinspector.com/docs/reusing-tests-different-environments/) to execute your test against.
+ * **Additional Parameters** (optional): additionally provide [any other API paramaters](https://ghostinspector.com/docs/api/tests/#execute) or [custom variables](https://ghostinspector.com/docs/variables/) in JSON format (eg, `{"browser": "chrome", "myVar": "some value"}`).
  
