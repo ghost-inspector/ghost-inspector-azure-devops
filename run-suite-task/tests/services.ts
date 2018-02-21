@@ -42,8 +42,8 @@ describe('services.Suite', function () {
     assert.ok(mockpoll.called)
 
     // clean up
-    axios.post.restore()
-    Service.prototype.poll.restore()
+    mockrequest.restore()
+    mockpoll.restore()
   })
 
   it('should poll and return a result', async function () {
@@ -64,8 +64,8 @@ describe('services.Suite', function () {
     assert.ok(result === true)
 
     // clean up
-    axios.get.restore()
-    Service.prototype.sleep.restore()
+    mockrequest.restore()
+    mocksleep.restore()
   })
 
 })
