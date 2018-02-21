@@ -51,7 +51,7 @@
           "label": "Additional Parameters (JSON)",
           "defaultValue": "",
           "required": false,
-          "helpMarkDown": "Additional parameters in JSON format to POST to the API ([documentation](https://ghostinspector.com/docs/api/suites/#execute)).",
+          "helpMarkDown": "[Additional parameters](https://ghostinspector.com/docs/api/suites/#execute) or [custom variables](https://ghostinspector.com/docs/variables/) in JSON format to POST to the API).",
           "groupName": "advanced"
       }
   ],
