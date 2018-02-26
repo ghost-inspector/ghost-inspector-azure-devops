@@ -1,0 +1,40 @@
+{
+  "name": "ghost-inspector-vsts-task-extension",
+  "version": "0.1.7",
+  "description": "Trigger your Ghost Inspector test suite in your VSTS build.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension"
+  },
+  "scripts": {
+    "test": "./node_modules/ts-mocha/bin/ts-mocha tests/**/*.ts"
+  },
+  "keywords": [
+    "ghost inspector",
+    "browser",
+    "testing",
+    "uat",
+    "qat"
+  ],
+  "author": "Ghost Inspector team",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "request": "^2.83.0",
+    "typescript": "^2.7.1",
+    "typings": "^2.1.1",
+    "vsts-task-lib": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/expect": "^1.20.2",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^4.0.36",
+    "@types/q": "^1.0.7",
+    "@types/sinon": "^4.1.3",
+    "mocha": "^5.0.0",
+    "sinon": "^4.3.0",
+    "ts-mocha": "^1.1.0"
+  }
+}
