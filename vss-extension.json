@@ -3,7 +3,7 @@
   "id": "ghost-inspector-vsts-extension",
   "publisher": "ghost-inspector",
   "name": "Ghost Inspector Integration",
-  "version": "0.1.7",
+  "version": "1.0.0",
   "description": "Ghost Inspector is an automated browser UI testing and monitoring tool. This integration allows you to execute your Ghost Inspector test suites directly within your VSTS build.",
   "tags": [
     "Automated Testing",
@@ -24,7 +24,7 @@
     "color": "rgb(0, 100, 2)",
     "theme": "dark"
   },
-  "public": false,
+  "public": true,
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"

@@ -30,4 +30,4 @@ The extension is written in TypeScript. Between changes, you can simply run the 
 Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
-2018-Feb-021: Initial release
+ - 2018-Feb-26 - 1.0.0: Initial release
