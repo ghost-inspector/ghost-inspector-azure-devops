@@ -26,6 +26,7 @@ describe('services.Suite', function () {
     assert.equal(service.body.browser, 'chrome', 'browser')
     assert.equal(service.body.myVar, 'hello', 'myVar')
     assert.equal(service.body.immediate, 1, 'immediate')
+    assert.equal(service.body.startUrl, 'https://somewhere.com', 'startUrl')
   })
 
   it('should execute the request', async function () {
