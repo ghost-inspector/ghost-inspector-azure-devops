@@ -26,8 +26,30 @@ The extension is written in TypeScript. Between changes, you can simply run the 
 ./bin/test.sh
 ```
 
+# Building the extension
+First make sure you have the VSTS extension CLI:
+
+```
+$ npm install -g tfx-cli
+```
+
+You will need to increment the appropriate version number before you can build and publish this extension:
+
+ * [vss-extension.json](./vss-extension.json)
+ * [run-suite-task/package.json](run-suite-task/package.json)
+ * [run-suite-task/task.json](run-suite-task/task.json)
+
+
+Create the extension with this command:
+```
+$ tfx extension create
+```
+
+The extension should now be in the project root under `ghost-inspector.ghost-inspector-vsts-extension-<version>.vsix`.
+
 ## Issues
 Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
- - 2018-Feb-26 - 1.0.0: Initial release
+ - 2018-02-26 - 1.0.0: Initial release
+ - 2018-03-13 - 1.0.1: Patch to fix not passing startUrl

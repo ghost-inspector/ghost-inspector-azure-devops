@@ -22,6 +22,9 @@ export class Suite {
   get body (): object {
     let params = this.request.params
     params.immediate = 1
+    if (this.request.startUrl) {
+      params.startUrl = this.request.startUrl
+    }
     return params
   }
 
