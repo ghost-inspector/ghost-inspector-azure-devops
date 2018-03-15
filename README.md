@@ -1,5 +1,8 @@
 Ghost Inspector Extension for Visual Studio Team Services
 -------------
+
+Build status: ![build status](https://circleci.com/gh/ghost-inspector/ghost-inspector-vsts-extension.svg?style=shield&circle-token=05c5ca3ba409f6a6766a455a2aae6811b822003e)
+
 With this plugin you can add a build step to your VSTS project that executes a Ghost Inspector test suite. If the test suite is successful, your pipeline will continue to the next step in your pipeline; however, if it fails (or times out), the build will be marked as failed.
 
 ## Installation
@@ -51,5 +54,6 @@ The extension should now be in the project root under `ghost-inspector.ghost-ins
 Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
- - 2018-02-26 - 1.0.0: Initial release
+ - 2018-03-15 - 1.0.2: Add CI config and public build status
  - 2018-03-13 - 1.0.1: Patch to fix not passing startUrl
+ - 2018-02-26 - 1.0.0: Initial release
