@@ -54,5 +54,6 @@ The extension should now be in the project root under `ghost-inspector.ghost-ins
 Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
- - 2018-02-26 - 1.0.0: Initial release
+ - 2018-03-13 - 1.0.2: Add CI config and public build status
  - 2018-03-13 - 1.0.1: Patch to fix not passing startUrl
+ - 2018-02-26 - 1.0.0: Initial release
