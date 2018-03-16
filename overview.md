@@ -1,5 +1,4 @@
 # Getting started with Ghost Inspector
-**Build status**: ![build status](https://circleci.com/gh/ghost-inspector/ghost-inspector-vsts-extension.svg?circle-token=05c5ca3ba409f6a6766a455a2aae6811b822003e)
 
 Ghost Inspector is an automated website testing and monitoring service that checks for problems with your website or application. It carries out operations in a browser, the same way a user would, to ensure that everything is working properly.
 
