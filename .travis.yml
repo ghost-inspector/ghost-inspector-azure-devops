@@ -4,4 +4,5 @@ node_js:
   - 0.8
 
 script:
+  - cd run-suite-task && npm install . && cd ..
   - bin/test.sh
