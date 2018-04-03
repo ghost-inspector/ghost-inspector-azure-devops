@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - 0.8
+  - 8.9.4
 
 script:
   - npm config set strict-ssl false
