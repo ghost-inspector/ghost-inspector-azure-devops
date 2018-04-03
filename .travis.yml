@@ -4,6 +4,6 @@ node_js:
   - 8.9.4
 
 script:
-  - npm config set strict-ssl false
+  - npm install -g typescript
   - cd run-suite-task && npm install . && cd ..
   - bin/test.sh
