@@ -24,7 +24,7 @@
     "request": "^2.83.0",
     "typescript": "^2.7.1",
     "typings": "^2.1.1",
-    "vsts-task-lib": "^2.4.0"
+    "vsts-task-lib": "2.4.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
