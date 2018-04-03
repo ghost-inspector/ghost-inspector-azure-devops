@@ -29,9 +29,10 @@ export class Suite {
   }
 
   async poll (suiteResultId:string): Promise<boolean> {
-    const resultsUrl = `${this.suiteResultsBaseUrl}/${suiteResultId}/?apiKey=${this.request.apiKey}`
+    const safeUrl = `${this.suiteResultsBaseUrl}/${suiteResultId}/?apiKey=`
+    const resultsUrl = `${safeUrl}${this.request.apiKey}`
     await this.sleep(5000)
-    console.log('Polling for suite results', resultsUrl)
+    console.log('Polling for suite results', `${safeUrl}***`)
     const results:any = await axios.get(resultsUrl)
     const status:boolean = results.data.data.passing
 
