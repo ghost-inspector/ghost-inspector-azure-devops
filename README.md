@@ -54,6 +54,7 @@ The extension should now be in the project root under `ghost-inspector.ghost-ins
 Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
+ - 2019-05-01 - 1.0.6: Updates `axios` to address vulnerability
  - 2018-07-18 - 1.0.5: Add compatibility for TFS2017 (node `v5.x`/`ES5`)
  - 2018-04-03 - 1.0.4: Fix `parameters` typo
  - 2018-03-15 - 1.0.2: Add CI config and public build status
