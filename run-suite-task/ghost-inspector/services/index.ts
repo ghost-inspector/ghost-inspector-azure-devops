@@ -11,7 +11,7 @@ export class Suite {
     this.request = request
   }
 
-  async sleep (time:Number): Promise<any> {
+  async sleep (time:number): Promise<any> {
     return new Promise(resolve => setTimeout(resolve, time))
   }
 
