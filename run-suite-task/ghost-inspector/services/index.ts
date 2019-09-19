@@ -46,11 +46,11 @@ export class Suite {
 
   async execute (): Promise<boolean> {
     // TODO: test network failure
-    console.log('POSTing execute request with body', this.suiteExecuteUrl, this.body)
+    const safeUrl = `${this.suiteResultsBaseUrl}/${suiteResultId}/?apiKey=***`
+    console.log('POSTing execute request with body', safeUrl, this.body)
     const response = await axios.post(this.suiteExecuteUrl, this.body)
     console.log('Got the resultId', response.data.data._id)
     const suiteResultId = response.data.data._id
-    // TODO: what are the possible execute responses
     return await this.poll(suiteResultId)
   }
 }
