@@ -1,6 +1,6 @@
 {
   "name": "ghost-inspector-vsts-task-extension",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Trigger your Ghost Inspector test suite in your VSTS build.",
   "main": "index.js",
   "repository": {
