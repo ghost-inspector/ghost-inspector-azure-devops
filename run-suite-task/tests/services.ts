@@ -17,7 +17,13 @@ describe('services.Suite', function () {
   it('should construct a basic URL', function () {
     const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{}')
     const service:any = new Service(request)
-    assert.equal(service.suiteExecuteUrl, 'https://api.ghostinspector.com/v1/suites/some-suiteId/execute/?apiKey=some-apikey')
+    assert.equal(service.getSuiteExecuteUrl(), 'https://api.ghostinspector.com/v1/suites/some-suiteId/execute/?apiKey=some-apikey')
+  })
+
+  it('should obscure the API key when obscureKey is true', function () {
+    const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{}')
+    const service:any = new Service(request)
+    assert.equal(service.getSuiteExecuteUrl(true), 'https://api.ghostinspector.com/v1/suites/some-suiteId/execute/?apiKey=***')
   })
 
   it('should have appropriate post params', function () {

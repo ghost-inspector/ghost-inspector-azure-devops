@@ -15,8 +15,9 @@ export class Suite {
     return new Promise(resolve => setTimeout(resolve, time))
   }
 
-  get suiteExecuteUrl (): string {
-    return `${this.suiteExecuteBaseUrl}/${this.request.suiteId}/execute/?apiKey=${this.request.apiKey}`
+  getSuiteExecuteUrl (obscureKey:Boolean = false): string {
+    const renderedKey = obscureKey ? '***' : this.request.apiKey
+    return `${this.suiteExecuteBaseUrl}/${this.request.suiteId}/execute/?apiKey=${renderedKey}`
   }
 
   get body (): object {
@@ -46,11 +47,10 @@ export class Suite {
 
   async execute (): Promise<boolean> {
     // TODO: test network failure
-    console.log('POSTing execute request with body', this.suiteExecuteUrl, this.body)
-    const response = await axios.post(this.suiteExecuteUrl, this.body)
+    console.log('POSTing execute request with body', this.getSuiteExecuteUrl(true), this.body)
+    const response = await axios.post(this.getSuiteExecuteUrl(), this.body)
     console.log('Got the resultId', response.data.data._id)
     const suiteResultId = response.data.data._id
-    // TODO: what are the possible execute responses
     return await this.poll(suiteResultId)
   }
 }
