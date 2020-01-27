@@ -1,6 +1,6 @@
 # Getting started with Ghost Inspector
 
-**Build status**: ![build status](https://travis-ci.org/ghost-inspector/ghost-inspector-vsts-extension.svg?branch=master)
+**Build status**: ![build status](https://api.travis-ci.org/ghost-inspector/ghost-inspector-azure-devops.svg?branch=master)
 
 Ghost Inspector is an automated website testing and monitoring service that checks for problems with your website or application. It carries out operations in a browser, the same way a user would, to ensure that everything is working properly.
 
@@ -18,12 +18,12 @@ Some of our [key features](https://ghostinspector.com/learn-more/):
  * [Customize and override test settings](https://ghostinspector.com/docs/test-settings/) in advance or at runtime.
  * [Notify your team](https://ghostinspector.com/docs/notification/) when things haven't gone as expected.
 
-# Trigger tests from your VSTS build
-Adding Ghost Inspector test suite execution to your VSTS build is as simple as adding a new Ghost Inspector task.
+# Trigger tests from your Azure DevOps build
+Adding Ghost Inspector test suite execution to your Azure DevOps build is as simple as adding a new Ghost Inspector task.
 Once the task has been added, you have the ability to customize your build step:
 
  * **Suite ID**: specify the ID of the Ghost Inspector test suite you wish to execute.
  * **API Key**: provide your Ghost Inspector API key ([provided in your account](https://app.ghostinspector.com/account)).
  * **Start URL** (optional): provide the [alternative URL of your test environment](https://ghostinspector.com/docs/reusing-tests-different-environments/) to execute your test against.
- * **Additional Parameters** (optional): additionally provide [any other API paramaters](https://ghostinspector.com/docs/api/tests/#execute) or [custom variables](https://ghostinspector.com/docs/variables/) in JSON format (eg, `{"browser": "chrome", "myVar": "some value"}`).
+ * **Additional Parameters** (optional): additionally provide [any other API parameters](https://ghostinspector.com/docs/api/tests/#execute) or [custom variables](https://ghostinspector.com/docs/variables/) in JSON format (eg, `{"browser": "chrome", "myVar": "some value"}`).
  

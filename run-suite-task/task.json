@@ -2,14 +2,14 @@
   "id": "C51CA1CE-0B54-627E-9571-3CBB14A64584",
   "name": "ghost-inspector-vsts-extension",
   "friendlyName": "Ghost Inspector",
-  "description": "Execute your Ghost Inspector test suites in your VSTS build.",
-  "helpMarkDown": "Execute your Ghost Inspector test suites in your VSTS build.",
+  "description": "Execute your Ghost Inspector test suites in your Azure DevOps build.",
+  "helpMarkDown": "Execute your Ghost Inspector test suites in your Azure DevOps build.",
   "category": "Test",
   "author": "Ghost Inspector",
   "version": {
       "Major": 1,
       "Minor": 0,
-      "Patch": 7
+      "Patch": 8
   },
   "instanceNameFormat": "Execute Suite $(suiteid)",
   "groups": [
