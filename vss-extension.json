@@ -4,7 +4,7 @@
   "publisher": "ghost-inspector",
   "name": "Ghost Inspector Integration",
   "version": "1.0.7",
-  "description": "Ghost Inspector is an automated browser UI testing and monitoring tool. This integration allows you to execute your Ghost Inspector test suites directly within your VSTS build.",
+  "description": "Ghost Inspector is an automated browser UI testing and monitoring tool. This integration allows you to execute your Ghost Inspector test suites directly within your Azure DevOps build.",
   "tags": [
     "Automated Testing",
     "Integration Testing",
