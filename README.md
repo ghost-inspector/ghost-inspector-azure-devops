@@ -52,7 +52,7 @@ The extension should now be in the project root under `ghost-inspector.ghost-ins
 
 ## Publishing to Azure Devops Marketplace
 
-First you will need to sign into Azure Devops Marketplace, once signed in to to *Publish Extensions*. Click on *Update* in the dropdown beside the Ghost Inspector plugin version, and drag the new `.vsix` file onto the upload area and click *Upload*.
+First you will need to sign into Azure Devops Marketplace, then navigate to *Publish Extensions*. Click on *Update* in the dropdown beside the Ghost Inspector plugin version, and drag the new `.vsix` file onto the upload area and click *Upload*.
 
 ## Issues
 Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
