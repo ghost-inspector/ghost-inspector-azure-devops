@@ -54,6 +54,7 @@ The extension should now be in the project root under `ghost-inspector.ghost-ins
 Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
+ - 2020-01-27 - `1.0.8`: Updates references in docs from "VSTS" to "Azure DevOps"
  - 2019-09-19 - `1.0.7`: Obscure exposed API key in suite execute call, update dependencies
  - 2019-05-01 - `1.0.6`: Updates `axios` to address vulnerability
  - 2018-07-18 - `1.0.5`: Add compatibility for TFS2017 (node `v5.x`/`ES5`)

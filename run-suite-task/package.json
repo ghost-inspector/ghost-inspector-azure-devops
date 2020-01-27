@@ -1,7 +1,7 @@
 {
   "name": "ghost-inspector-vsts-task-extension",
-  "version": "1.0.7",
-  "description": "Trigger your Ghost Inspector test suite in your VSTS build.",
+  "version": "1.0.8",
+  "description": "Trigger your Ghost Inspector test suite in your Azure DevOps build.",
   "main": "index.js",
   "repository": {
     "type": "git",
