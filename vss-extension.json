@@ -3,7 +3,7 @@
   "id": "ghost-inspector-vsts-extension",
   "publisher": "ghost-inspector",
   "name": "Ghost Inspector Integration",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Ghost Inspector is an automated browser UI testing and monitoring tool. This integration allows you to execute your Ghost Inspector test suites directly within your Azure DevOps build.",
   "tags": [
     "Automated Testing",
@@ -52,10 +52,10 @@
         "uri": "https://ghostinspector.com/docs/getting-started/"
     },
     "repository": {
-      "uri": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension"
+      "uri": "https://github.com/ghost-inspector/ghost-inspector-azure-devops"
     },
     "issues": {
-      "uri": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues"
+      "uri": "https://github.com/ghost-inspector/ghost-inspector-azure-devops/issues"
     },
     "support": {
       "uri": "mailto:help@ghostinspector.com"
@@ -63,7 +63,7 @@
   },
   "repository": {
     "type": "git",
-    "uri": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension"
+    "uri": "https://github.com/ghost-inspector/ghost-inspector-azure-devops"
   },
   "files": [
     {

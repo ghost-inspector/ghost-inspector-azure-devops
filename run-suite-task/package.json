@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ghost-inspector/ghost-inspector-vsts-extension"
+    "url": "https://github.com/ghost-inspector/ghost-inspector-azure-devops"
   },
   "scripts": {
     "test": "./node_modules/ts-mocha/bin/ts-mocha tests/**/*.ts"
