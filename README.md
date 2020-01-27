@@ -1,7 +1,7 @@
 Ghost Inspector Extension for Azure DevOps
 -------------
 
-Build status: ![build status](https://circleci.com/gh/ghost-inspector/ghost-inspector-vsts-extension.svg?style=shield&circle-token=05c5ca3ba409f6a6766a455a2aae6811b822003e)
+Build status: ![build status](https://circleci.com/gh/ghost-inspector/ghost-inspector-azure-devops.svg?style=shield&circle-token=05c5ca3ba409f6a6766a455a2aae6811b822003e)
 
 With this plugin you can add a build step to your Azure DevOps project that executes a Ghost Inspector test suite. If the test suite is successful, your pipeline will continue to the next step in your pipeline; however, if it fails (or times out), the build will be marked as failed.
 
@@ -51,7 +51,7 @@ $ tfx extension create
 The extension should now be in the project root under `ghost-inspector.ghost-inspector-vsts-extension-<version>.vsix`.
 
 ## Issues
-Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-vsts-extension/issues) or [through our support channel](https://ghostinspector.com/support/).
+Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-azure-devops/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
  - 2020-01-27 - `1.0.8`: Updates references in docs from "VSTS" to "Azure DevOps"
