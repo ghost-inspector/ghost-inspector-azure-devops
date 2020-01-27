@@ -1,4 +1,4 @@
-Ghost Inspector Extension for Visual Studio Team Services
+Ghost Inspector Extension for Azure DevOps
 -------------
 
 Build status: ![build status](https://circleci.com/gh/ghost-inspector/ghost-inspector-vsts-extension.svg?style=shield&circle-token=05c5ca3ba409f6a6766a455a2aae6811b822003e)
