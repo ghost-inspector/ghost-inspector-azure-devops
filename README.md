@@ -30,7 +30,13 @@ The extension is written in TypeScript. Between changes, you can simply run the 
 ```
 
 # Building the extension
-First make sure you have the Azure DevOps extension CLI:
+Make sure you have transpiled the latest TypeScript to JavaScript in the `run-suite-task` directory:
+
+```
+$ npm run transpile
+```
+
+Make sure you have the Azure DevOps extension CLI:
 
 ```
 $ npm install -g tfx-cli
