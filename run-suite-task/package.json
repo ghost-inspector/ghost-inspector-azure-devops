@@ -8,7 +8,9 @@
     "url": "https://github.com/ghost-inspector/ghost-inspector-azure-devops"
   },
   "scripts": {
-    "test": "./node_modules/ts-mocha/bin/ts-mocha tests/**/*.ts"
+    "prepare": "npm run transpile",
+    "test": "./node_modules/ts-mocha/bin/ts-mocha tests/**/*.ts",
+    "transpile": "./node_modules/.bin/tsc -p ./"
   },
   "keywords": [
     "ghost inspector",
