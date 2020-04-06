@@ -23,11 +23,7 @@ This plugin can be installed from within the [Visual Studio Marketplace](https:/
 6. Save and queue your project.
 
 # Development
-The extension is written in TypeScript. Between changes, you can simply run the tests with:
-
-```
-./bin/test.sh
-```
+The extension is written in TypeScript. Between changes, you can run the tests with `npm test` in the `run-suite-task` directory.
 
 # Building the extension
 Make sure you have transpiled the latest TypeScript to JavaScript in the `run-suite-task` directory:
