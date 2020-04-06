@@ -58,6 +58,7 @@ First you will need to sign into Azure Devops Marketplace, then navigate to *Pub
 Please report any issues [on Github](https://github.com/ghost-inspector/ghost-inspector-azure-devops/issues) or [through our support channel](https://ghostinspector.com/support/).
 
 ## Change Log
+ - 2020-04-06 - `1.0.10`: Depdendency updates
  - 2020-01-28 - `1.0.9`: Rebundles package, `1.0.8` was missing `*.js` files and would not execute.
  - 2020-01-27 - `1.0.8`: Updates references in docs from "VSTS" to "Azure DevOps"
  - 2019-09-19 - `1.0.7`: Obscure exposed API key in suite execute call, update dependencies
