@@ -66,6 +66,7 @@ Please report any issues [on Github](https://github.com/ghost-inspector/ghost-in
 
 ## Change Log
 
+- 2020-10-27 - `1.0.13`: Improve logging around failed execution responses.
 - 2020-04-21 - `1.0.12`: Adds `vso.release_execute` scope.
 - 2020-04-06 - `1.0.11`: Rebundles package, `1.0.10` was missing `*.js` files and would not execute.
 - 2020-04-06 - `1.0.10`: Depdendency updates
