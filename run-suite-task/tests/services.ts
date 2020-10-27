@@ -8,6 +8,14 @@ import {Suite as Service} from '../ghost-inspector/services'
 
 describe('services.Suite', function () {
 
+  beforeEach(function () {
+    this.sandbox = sinon.createSandbox()
+  })
+
+  afterEach(function () {
+    this.sandbox.restore()
+  })
+
   it('should instantiate a service object', function () {
     const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{}')
     const service = new Service(request)
@@ -36,10 +44,10 @@ describe('services.Suite', function () {
   })
 
   it('should execute the request', async function () {
-    let mockrequest = sinon.stub(axios, 'post').callsFake(async function (): Promise<any> {
-      return {data: {data: {_id: '1234'}}}
+    let mockrequest = this.sandbox.stub(axios, 'post').callsFake(async function (): Promise<any> {
+      return {data: {data: {_id: '1234'}, code: 'SUCCESS'}}
     })
-    let mockpoll = sinon.stub(Service.prototype, 'poll').callsFake(async function (): Promise<any> {
+    let mockpoll = this.sandbox.stub(Service.prototype, 'poll').callsFake(async function (): Promise<any> {
       return true
     })
     const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
@@ -47,40 +55,39 @@ describe('services.Suite', function () {
     const results = await service.execute()
     assert.ok(mockrequest.called)
     assert.ok(mockpoll.called)
-
-    // clean up
-    mockrequest.restore()
-    mockpoll.restore()
   })
 
   it('should poll and return a result', async function () {
     const passingNull = {data: {data: {passing:null}}}
     const passingTrue = {data: {data: {passing:true}}}
 
-    let mockrequest:any = sinon.stub(axios, 'get')
+    let mockrequest:any = this.sandbox.stub(axios, 'get')
     mockrequest.onFirstCall().resolves(passingNull)
     mockrequest.onSecondCall().resolves(passingNull)
     mockrequest.onThirdCall().resolves(passingTrue)
 
-    let mocksleep:any = sinon.stub(Service.prototype, 'sleep')
+    let mocksleep:any = this.sandbox.stub(Service.prototype, 'sleep')
     mocksleep.resolves()
 
     const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
     const service = new Service(request)
     const result = await service.poll('1234')
     assert.ok(result === true)
+  })
 
-    // clean up
-    mockrequest.restore()
-    mocksleep.restore()
+  it('should fail with execution error', async function () {
+    const errorResponse = { data: { message: 'some error', code: 'ERROR'}}
+
+    let mockrequest:any = this.sandbox.stub(axios, 'post')
+    mockrequest.onFirstCall().resolves(errorResponse)
+
+    let mocksleep:any = this.sandbox.stub(Service.prototype, 'sleep')
+    mocksleep.resolves()
+
+    const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
+    const service = new Service(request)
+    const result = await service.execute()
+    assert.ok(result === false)
   })
 
 })
-
-/**
- * TODO:
- *  - test empty suite result ID
- *  - test bad auth on service
- *  - test network timeout
- *  - test polling
- */
