@@ -9,7 +9,7 @@
   },
   "scripts": {
     "prepare": "npm run transpile",
-    "test": "./node_modules/ts-mocha/bin/ts-mocha tests/**/*.ts",
+    "test": "npm run prepare && ./node_modules/ts-mocha/bin/ts-mocha tests/**/*.ts",
     "transpile": "./node_modules/.bin/tsc -p ./"
   },
   "keywords": [

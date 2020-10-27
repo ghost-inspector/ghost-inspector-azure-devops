@@ -46,11 +46,16 @@ export class Suite {
   }
 
   async execute (): Promise<boolean> {
-    // TODO: test network failure
     console.log('POSTing execute request with body', this.getSuiteExecuteUrl(true), this.body)
     const response = await axios.post(this.getSuiteExecuteUrl(), this.body)
-    console.log('Got the resultId', response.data.data._id)
-    const suiteResultId = response.data.data._id
+    const body = response.data
+    if (body.code !== 'SUCCESS') {
+      console.error(`Execution failed: ${body.message}`)
+      return false
+    }
+
+    console.log('Got the resultId', body.data._id)
+    const suiteResultId = body.data._id
     return await this.poll(suiteResultId)
   }
 }
