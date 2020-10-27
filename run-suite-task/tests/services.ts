@@ -55,10 +55,6 @@ describe('services.Suite', function () {
     const results = await service.execute()
     assert.ok(mockrequest.called)
     assert.ok(mockpoll.called)
-
-    // clean up
-    mockrequest.restore()
-    mockpoll.restore()
   })
 
   it('should poll and return a result', async function () {
@@ -77,10 +73,6 @@ describe('services.Suite', function () {
     const service = new Service(request)
     const result = await service.poll('1234')
     assert.ok(result === true)
-
-    // clean up
-    mockrequest.restore()
-    mocksleep.restore()
   })
 
   it('should fail with execution error', async function () {
@@ -96,10 +88,6 @@ describe('services.Suite', function () {
     const service = new Service(request)
     const result = await service.execute()
     assert.ok(result === false)
-
-    // clean up
-    mockrequest.restore()
-    mocksleep.restore()
   })
 
 })
