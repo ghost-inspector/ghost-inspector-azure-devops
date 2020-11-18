@@ -33,12 +33,13 @@ export class Suite {
     const safeUrl = `${this.suiteResultsBaseUrl}/${suiteResultId}/?apiKey=`
     const resultsUrl = `${safeUrl}${this.request.apiKey}`
     await this.sleep(5000)
+
     console.log('Polling for suite results', `${safeUrl}***`)
     const results:any = await axios.get(resultsUrl)
     const status:boolean = results.data.data.passing
 
     if (status !== null) {
-      console.log('Got status, suite passing:', status)
+      console.log(`Got status, suiteResult ${suiteResultId} passing:`, status)
       return status
     } else {
       return this.poll(suiteResultId)
@@ -54,8 +55,19 @@ export class Suite {
       return false
     }
 
-    console.log('Got the resultId', body.data._id)
-    const suiteResultId = body.data._id
-    return await this.poll(suiteResultId)
+    // prep single value response for polling
+    if (!Array.isArray(body.data)) {
+      body.data = [body.data]
+    }
+
+    body.data.forEach((item:any) => {
+      console.log('Got suiteResultId', item._id)
+    })
+
+    const results = await Promise.all(body.data.map((item:any) => {
+      return this.poll(item._id)
+    }))
+
+    return results.every(Boolean)
   }
 }
