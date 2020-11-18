@@ -90,4 +90,50 @@ describe('services.Suite', function () {
     assert.ok(result === false)
   })
 
+  it('should execute and poll when multiple suite results (executed with data source)', async function () {
+    const passingNull = {data: {data: {passing:null}}}
+    const passingTrue = {data: {data: {passing:true}}}
+
+    // mock out execution
+    this.sandbox.stub(axios, 'post').resolves({
+      data: {
+        data: [ {_id: '1234'}, {_id: '1235'}],
+        code: 'SUCCESS'
+      }
+    })
+
+    // polling always returns true
+    const mockpoll = this.sandbox.stub(Service.prototype, 'poll')
+    mockpoll.resolves(true)
+
+    const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
+    const service = new Service(request)
+    const results = await service.execute()
+
+    assert.ok(results)
+  })
+
+  it('should fail with multiple results when one returns passing=false', async function () {
+    const passingNull = {data: {data: {passing:null}}}
+    const passingTrue = {data: {data: {passing:true}}}
+
+    // mock out execution
+    this.sandbox.stub(axios, 'post').resolves({
+      data: {
+        data: [ {_id: '1234'}, {_id: '1235'}],
+        code: 'SUCCESS'
+      }
+    })
+
+    // second polling call fails
+    const mockpoll = this.sandbox.stub(Service.prototype, 'poll')
+    mockpoll.onCall(0).resolves(true)
+    mockpoll.onCall(1).resolves(false)
+
+    const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
+    const service = new Service(request)
+    const results = await service.execute()
+
+    assert.equal(results, false)
+  })
 })
