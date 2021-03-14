@@ -3,7 +3,7 @@
   "id": "ghost-inspector-vsts-extension",
   "publisher": "ghost-inspector",
   "name": "Ghost Inspector Integration",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Ghost Inspector is an automated browser UI testing and monitoring tool. This integration allows you to execute your Ghost Inspector test suites directly within your Azure DevOps build.",
   "tags": [
     "Automated Testing",
@@ -21,8 +21,8 @@
     "default": "icon.png"
   },
   "branding": {
-    "color": "rgb(0, 100, 2)",
-    "theme": "dark"
+    "color": "rgb(0, 204, 146)",
+    "theme": "light"
   },
   "public": true,
   "targets": [
@@ -30,8 +30,13 @@
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "scopes": ["vso.build_execute", "vso.release_execute"],
-  "categories": ["Build and release"],
+  "scopes": [
+    "vso.build_execute",
+    "vso.release_execute"
+  ],
+  "categories": [
+    "Build and release"
+  ],
   "content": {
     "details": {
       "path": "overview.md"
@@ -74,7 +79,9 @@
     {
       "id": "package-extension-build-task",
       "type": "ms.vss-distributed-task.task",
-      "targets": ["ms.vss-distributed-task.tasks"],
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
       "properties": {
         "name": "run-suite-task"
       }
