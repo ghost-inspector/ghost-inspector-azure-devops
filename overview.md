@@ -1,7 +1,5 @@
 # Getting started with Ghost Inspector
 
-**Build status**: ![build status](https://api.travis-ci.org/ghost-inspector/ghost-inspector-azure-devops.svg?branch=stable)
-
 Ghost Inspector is an automated website testing and monitoring service that checks for problems with your website or application. It carries out operations in a browser, the same way a user would, to ensure that everything is working properly.
 
 Check out our [Getting Started](https://ghostinspector.com/docs/getting-started/) page for more information.
