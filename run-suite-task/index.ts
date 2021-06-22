@@ -7,7 +7,8 @@ async function main() {
       task.getInput('apikey', true),
       task.getInput('suiteid', true),
       task.getInput('starturl', false),
-      task.getInput('parameters', false)
+      task.getInput('parameters', false),
+      task.getInput('resultspath', false)
     ))
 
     if (result) {

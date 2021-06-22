@@ -47,14 +47,12 @@ describe('services.Suite', function () {
     let mockrequest = this.sandbox.stub(axios, 'post').callsFake(async function (): Promise<any> {
       return {data: {data: {_id: '1234'}, code: 'SUCCESS'}}
     })
-    let mockpoll = this.sandbox.stub(Service.prototype, 'poll').callsFake(async function (): Promise<any> {
-      return true
-    })
+
     const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
     const service = new Service(request)
     const results = await service.execute()
     assert.ok(mockrequest.called)
-    assert.ok(mockpoll.called)
+    assert.deepEqual(results, [{_id: '1234'}])
   })
 
   it('should poll and return a result', async function () {
@@ -75,65 +73,76 @@ describe('services.Suite', function () {
     assert.ok(result === true)
   })
 
-  it('should fail with execution error', async function () {
+  it('should return empty array with execution error', async function () {
     const errorResponse = { data: { message: 'some error', code: 'ERROR'}}
 
-    let mockrequest:any = this.sandbox.stub(axios, 'post')
+    const mockrequest:any = this.sandbox.stub(axios, 'post')
     mockrequest.onFirstCall().resolves(errorResponse)
-
-    let mocksleep:any = this.sandbox.stub(Service.prototype, 'sleep')
-    mocksleep.resolves()
 
     const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
     const service = new Service(request)
     const result = await service.execute()
-    assert.ok(result === false)
+    assert.deepEqual(result, [])
   })
 
-  it('should execute and poll when multiple suite results (executed with data source)', async function () {
-    const passingNull = {data: {data: {passing:null}}}
-    const passingTrue = {data: {data: {passing:true}}}
+  it('should fetch and write xunit report', async function () {
+    const getResponse = { data: '<some><xml></xml></some>'}
+    const mockrequest:any = this.sandbox.stub(axios, 'get').resolves(getResponse)
 
-    // mock out execution
-    this.sandbox.stub(axios, 'post').resolves({
-      data: {
-        data: [ {_id: '1234'}, {_id: '1235'}],
-        code: 'SUCCESS'
-      }
-    })
-
-    // polling always returns true
-    const mockpoll = this.sandbox.stub(Service.prototype, 'poll')
-    mockpoll.resolves(true)
+    const writeFileStub = this.sandbox.stub(Service.prototype, 'writeFile').resolves()
 
     const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
     const service = new Service(request)
-    const results = await service.execute()
 
-    assert.ok(results)
+    await service.fetchAndWriteReport('some-id', '/some/path')
+
+    assert.deepEqual(mockrequest.args[0], ['https://api.ghostinspector.com/v1/suite-results/some-id/xunit/?apiKey=some-apikey'])
+    assert.deepEqual(writeFileStub.args[0], ['/some/path', '<some><xml></xml></some>'])
   })
 
-  it('should fail with multiple results when one returns passing=false', async function () {
-    const passingNull = {data: {data: {passing:null}}}
-    const passingTrue = {data: {data: {passing:true}}}
 
-    // mock out execution
-    this.sandbox.stub(axios, 'post').resolves({
-      data: {
-        data: [ {_id: '1234'}, {_id: '1235'}],
-        code: 'SUCCESS'
-      }
-    })
+  // TODO: move this to the use case tests
+  // it('should execute and poll when multiple suite results (executed with data source)', async function () {
+  //   const passingNull = {data: {data: {passing:null}}}
+  //   const passingTrue = {data: {data: {passing:true}}}
 
-    // second polling call fails
-    const mockpoll = this.sandbox.stub(Service.prototype, 'poll')
-    mockpoll.onCall(0).resolves(true)
-    mockpoll.onCall(1).resolves(false)
+  //   // mock out execution
+  //   this.sandbox.stub(axios, 'post').resolves({
+  //     data: {
+  //       data: [ {_id: '1234'}, {_id: '1235'}],
+  //       code: 'SUCCESS'
+  //     }
+  //   })
 
-    const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
-    const service = new Service(request)
-    const results = await service.execute()
+  //   // polling always returns true
+  //   const mockpoll = this.sandbox.stub(Service.prototype, 'poll')
+  //   mockpoll.resolves(true)
 
-    assert.equal(results, false)
-  })
+  //   const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
+  //   const service = new Service(request)
+  //   const results = await service.execute()
+
+  //   assert.ok(results)
+  // })
+
+  // it('should fail with multiple results when one returns passing=false', async function () {
+  //   const passingNull = {data: {data: {passing:null}}}
+  //   const passingTrue = {data: {data: {passing:true}}}
+
+  //   // mock out execution
+  //   this.sandbox.stub(axios, 'post').resolves({
+  //     data: {
+  //       data: [ {_id: '1234'}, {_id: '1235'}],
+  //       code: 'SUCCESS'
+  //     }
+  //   })
+
+  //   const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{"browser": "chrome", "myVar": "hello"}')
+  //   const service = new Service(request)
+  //   const results = await service.execute()
+
+  //   assert.deepEqual(results, [{_id: '1234'}, {_id: '1235'}])
+  // })
+
+
 })
