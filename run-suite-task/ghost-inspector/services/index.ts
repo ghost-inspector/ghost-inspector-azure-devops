@@ -72,7 +72,7 @@ export class Suite {
     await this.writeFile(destination, report)
   }
 
-  async writeFile(path:string, contents:String): Promise<void> {
+  async writeFile(path:string, contents:string): Promise<void> {
     return fs.writeFileSync(path, contents)
   }
 }

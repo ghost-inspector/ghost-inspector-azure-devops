@@ -24,5 +24,5 @@ Once the task has been added, you have the ability to customize your build step:
  * **API Key**: provide your Ghost Inspector API key ([provided in your account](https://app.ghostinspector.com/account)).
  * **Start URL** (optional): provide the [alternative URL of your test environment](https://ghostinspector.com/docs/reusing-tests-different-environments/) to execute your test against.
  * **Additional Parameters** (optional): additionally provide [any other API parameters](https://ghostinspector.com/docs/api/tests/#execute) or [custom variables](https://ghostinspector.com/docs/variables/) in JSON format (eg, `{"browser": "chrome", "myVar": "some value"}`).
- * **xUInit Results Path**: (optional) specify where you would like to store the results reports in xUnit format for publishing in a later step.
+ * **xUnit Results Path**: (optional) specify where you would like to store the results reports in xUnit format for publishing in a later step.
  
