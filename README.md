@@ -66,7 +66,8 @@ Please report any issues [on Github](https://github.com/ghost-inspector/ghost-in
 
 ## Change Log
 
-- 2021-03-14 - `1.0.16`: Dependency updates and new icon
+- 2021-06-23 - `1.0.17`: Added xUnit report support.
+- 2021-03-14 - `1.0.16`: Dependency updates and new icon.
 - 2020-11-18 - `1.0.14`: Add support for data sources responses.
 - 2020-10-27 - `1.0.13`: Improve logging around failed execution responses.
 - 2020-04-21 - `1.0.12`: Adds `vso.release_execute` scope.
