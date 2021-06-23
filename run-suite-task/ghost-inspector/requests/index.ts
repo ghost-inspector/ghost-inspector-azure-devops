@@ -5,15 +5,17 @@ type Params = {
 }
 
 export class ExecuteSuiteRequest {
-  apiKey:String = ''
+  apiKey:string = ''
   suiteId:string = ''
-  startUrl:String = ''
+  startUrl:string = ''
   params:Params = {}
+  resultsPath:string = ''
   
-  constructor (apiKey:string, suiteId:string, startUrl='', rawParams:string|null ) {
+  constructor (apiKey:string, suiteId:string, startUrl='', rawParams:string|null, resultsPath='' ) {
     this.apiKey = apiKey
     this.suiteId = suiteId
     this.startUrl = startUrl
+    this.resultsPath = resultsPath
     try {
       if (rawParams) {
         this.params = JSON.parse(rawParams)

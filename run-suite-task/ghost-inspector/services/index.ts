@@ -1,5 +1,7 @@
-import {ExecuteSuiteRequest} from '../requests'
 import axios from 'axios'
+import fs from 'fs'
+
+import {ExecuteSuiteRequest} from '../requests'
 
 export class Suite {
 
@@ -46,28 +48,32 @@ export class Suite {
     }
   }
 
-  async execute (): Promise<boolean> {
+  async execute (): Promise<Array<any>>  {
     console.log('POSTing execute request with body', this.getSuiteExecuteUrl(true), this.body)
     const response = await axios.post(this.getSuiteExecuteUrl(), this.body)
     const body = response.data
     if (body.code !== 'SUCCESS') {
-      console.error(`Execution failed: ${body.message}`)
-      return false
+      console.error('Received error response: ', body.message)
+      return []
     }
 
-    // prep single value response for polling
+    // always return a list
     if (!Array.isArray(body.data)) {
       body.data = [body.data]
     }
+    return body.data
+  }
 
-    body.data.forEach((item:any) => {
-      console.log('Got suiteResultId', item._id)
-    })
+  async fetchAndWriteReport (id:string, destination:string): Promise<void> {
+    console.log(`Fetching xUnit report for ${id}`)
+    const reportUrl = `${this.suiteResultsBaseUrl}/${id}/xunit/?apiKey=${this.request.apiKey}`
+    const report = (await axios.get(reportUrl)).data
+    
+    // write file
+    await this.writeFile(`${destination}/${id}.xml`, report)
+  }
 
-    const results = await Promise.all(body.data.map((item:any) => {
-      return this.poll(item._id)
-    }))
-
-    return results.every(Boolean)
+  async writeFile(path:string, contents:string): Promise<void> {
+    return fs.writeFileSync(path, contents)
   }
 }

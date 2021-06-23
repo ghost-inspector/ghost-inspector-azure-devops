@@ -8,8 +8,8 @@
   "author": "Ghost Inspector",
   "version": {
     "Major": 1,
-    "Minor": 0,
-    "Patch": 16
+    "Minor": 1,
+    "Patch": 0
   },
   "instanceNameFormat": "Execute Suite $(suiteid)",
   "groups": [
@@ -53,6 +53,14 @@
       "required": false,
       "helpMarkDown": "[Additional parameters](https://ghostinspector.com/docs/api/suites/#execute) or [custom variables](https://ghostinspector.com/docs/variables/) in JSON format to POST to the API).",
       "groupName": "advanced"
+    },
+    {
+      "name": "resultspath",
+      "type": "string",
+      "label": "Results Path",
+      "defaultValue": "$(Common.TestResultsDirectory)",
+      "required": false,
+      "helpMarkDown": "Output path for test reports (xUnit v2 format). A report will be saved for each suite that is executed."
     }
   ],
   "execution": {

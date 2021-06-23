@@ -5,11 +5,12 @@ import {ExecuteSuiteRequest as Request} from '../ghost-inspector/requests'
 
 describe('requests.ExecuteSuiteRequest', function () {
   it('should instantiate a request object', function () {
-    const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{}')
+    const request = new Request('some-apikey', 'some-suiteId', 'https://somewhere.com', '{}', '/some/path')
     assert.equal(request.apiKey, 'some-apikey', 'apiKey')
     assert.equal(request.suiteId, 'some-suiteId', 'suiteId')
     assert.equal(request.startUrl, 'https://somewhere.com', 'startUrl')
     assert.deepEqual(request.params, {}, 'params')
+    assert.equal(request.resultsPath, '/some/path')
   })
 
   it('should throw an error if `rawParams` can not be JSON decoded', function () {

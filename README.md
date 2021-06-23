@@ -28,37 +28,67 @@ This plugin can be installed from within the [Visual Studio Marketplace](https:/
 
 The extension is written in TypeScript. Between changes, you can run the tests with `npm test` in the `run-suite-task` directory.
 
-# Building the extension
+# Building & testing the extension
 
-Make sure you have transpiled the latest TypeScript to JavaScript in the `run-suite-task` directory:
-
-```
-$ npm run transpile
-```
-
-Make sure you have the Azure DevOps extension CLI:
+To start, make sure you have the Azure DevOps extension CLI:
 
 ```
 $ npm install -g tfx-cli
 ```
 
-You will need to increment the appropriate version number before you can build and publish this extension:
+## The Dev Loop™
+
+In order to test the extension you will need to use the `vss-extension-dev.json` manifest to build and upload a private version of the plugin. Make sure once you've created the new dev version you share it with your target organization.
+
+### 1. Update version
+To make a change, modify the version numbers in these three files. For the dev version they can be pretty much anything, as long as the version currently doesn't exist:
 
 - [vss-extension.json](./vss-extension.json)
 - [run-suite-task/package.json](run-suite-task/package.json)
 - [run-suite-task/task.json](run-suite-task/task.json)
 
-Create the extension with this command:
+### 2. Compile
+
+Transpile and then build the plugin:
+```js
+cd run-task-suite
+npm run prepare 
+cd ..
+tfx extension create --manifests vss-extension-dev.json
+```
+
+The development version of the extension should now be in the project root under `ghost-inspector.ghost-inspector-vsts-extension-dev-<version>.vsix`.
+
+### 3. Upload/update plugin
+
+Now in [the Marketplace interface](https://marketplace.visualstudio.com/manage/publishers/ghost-inspector) select the dev version of the plugin and upload the new version (or create it if it doesn't exist).
+
+You will need to repeat this process for each code change you would like to test.
+
+# Publishing the plugin
+
+Now that new changes are ready to go, once again change the version number in the appropriate files to the next release:
+
+- [vss-extension.json](./vss-extension.json)
+- [run-suite-task/package.json](run-suite-task/package.json)
+- [run-suite-task/task.json](run-suite-task/task.json)
+
+
+
+Now recompile and rebuild the plugin:
 
 ```
-$ tfx extension create
+cd run-task-suite
+npm run prepare 
+cd ..
+tfx extension create
 ```
 
 The extension should now be in the project root under `ghost-inspector.ghost-inspector-vsts-extension-<version>.vsix`.
 
 ## Publishing to Azure Devops Marketplace
 
-First you will need to sign into Azure Devops Marketplace, then navigate to _Publish Extensions_. Click on _Update_ in the dropdown beside the Ghost Inspector plugin version, and drag the new `.vsix` file onto the upload area and click _Upload_.
+If you're not already, sign into Azure Devops Marketplace, then navigate to _Publish Extensions_. Click on _Update_ in the dropdown beside the Ghost Inspector plugin version, and drag the new `.vsix` file onto the upload area and click _Upload_.
 
 ## Issues
 
@@ -66,7 +96,8 @@ Please report any issues [on Github](https://github.com/ghost-inspector/ghost-in
 
 ## Change Log
 
-- 2021-03-14 - `1.0.16`: Dependency updates and new icon
+- 2021-06-23 - `1.1.0`: Added xUnit report support.
+- 2021-03-14 - `1.0.16`: Dependency updates and new icon.
 - 2020-11-18 - `1.0.14`: Add support for data sources responses.
 - 2020-10-27 - `1.0.13`: Improve logging around failed execution responses.
 - 2020-04-21 - `1.0.12`: Adds `vso.release_execute` scope.
