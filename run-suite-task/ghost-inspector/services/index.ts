@@ -53,6 +53,7 @@ export class Suite {
     const response = await axios.post(this.getSuiteExecuteUrl(), this.body)
     const body = response.data
     if (body.code !== 'SUCCESS') {
+      console.error('Received error response: ', body.message)
       return []
     }
 
@@ -69,7 +70,7 @@ export class Suite {
     const report = (await axios.get(reportUrl)).data
     
     // write file
-    await this.writeFile(destination, report)
+    await this.writeFile(`${destination}/${id}.xml`, report)
   }
 
   async writeFile(path:string, contents:string): Promise<void> {
