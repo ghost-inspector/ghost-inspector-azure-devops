@@ -19,7 +19,7 @@ async function main() {
 
   } catch (error) {
     console.error(`Task failed with an error: ${error}`)
-    task.setResult(task.TaskResult.Failed, error)
+    task.setResult(task.TaskResult.Failed, `${error}`)
   }
 }
 
