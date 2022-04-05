@@ -9,7 +9,7 @@
   "version": {
     "Major": 1,
     "Minor": 1,
-    "Patch": 0
+    "Patch": 1
   },
   "instanceNameFormat": "Execute Suite $(suiteid)",
   "groups": [
@@ -58,7 +58,7 @@
       "name": "resultspath",
       "type": "string",
       "label": "Results Path",
-      "defaultValue": "$(Common.TestResultsDirectory)",
+      "defaultValue": "$(System.DefaultWorkingDirectory)",
       "required": false,
       "helpMarkDown": "Output path for test reports (xUnit v2 format). A report will be saved for each suite that is executed."
     }
